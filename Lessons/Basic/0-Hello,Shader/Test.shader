@@ -1,4 +1,4 @@
-Shader "MineselfShader/Basic/0-HelloShaderTest"
+Shader "MineselfShader/Basic/0-HelloShaderTest/HelloShader_Test"
 {
     Properties
     {
@@ -15,7 +15,7 @@ Shader "MineselfShader/Basic/0-HelloShaderTest"
             //渲染状态
             
             
-            CGPROGRAM
+            CGPROGRAM//进入CGPROGRAM段
             /*
             vert/frag与顶点/片元着色器中声明的名字对应---要改一起改
             */
@@ -64,8 +64,8 @@ Shader "MineselfShader/Basic/0-HelloShaderTest"
 
                 return float4(finalRGB, 1);
             }
-            ENDCG
+            ENDCG//结束CGPROGRAM段
         }
     }
-    Fallback Off//不使用回调
+    Fallback Off//不使用后备
 }

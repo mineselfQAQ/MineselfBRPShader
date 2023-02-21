@@ -25,6 +25,10 @@ Shader "MineselfShader/Basic/5-NonPBRRendering1/Standard_NonPBR1"
         _R0("R0", vector) = (0.04,0.04,0.04,0)
         _FresnelPow("FresnelPower", Range(1, 10)) = 3
         _FresnelInt("FresnelIntensity", Range(0, 3)) = 1
+
+        [Space(10)]
+        [Header(Ambient)][Space(5)]
+        _AmbiInt("AmbientIntensity", Range(0, 5)) = 1
     }
     SubShader
     {
@@ -61,6 +65,8 @@ Shader "MineselfShader/Basic/5-NonPBRRendering1/Standard_NonPBR1"
             float3 _R0;
             float _FresnelPow;
             float _FresnelInt;
+
+            float _AmbiInt;
                 
 			//顶点输入
             struct appdata
@@ -116,7 +122,7 @@ Shader "MineselfShader/Basic/5-NonPBRRendering1/Standard_NonPBR1"
 
                 //四个光照组成部分
                 float3 dirDiff = _LightColor0 * mainTex * diffuse * _DiffInt * _DiffCol;
-                float3 indirDiff = mainTex * ambient * ao;
+                float3 indirDiff = mainTex * ambient * ao * _AmbiInt;
                 float3 dirSpec = _LightColor0 * specular * _SpecInt * _SpecCol * roughnessTex;
                 float3 indirSpec = cubemap * roughnessTex * ao;
 

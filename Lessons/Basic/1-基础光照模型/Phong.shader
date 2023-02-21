@@ -32,7 +32,6 @@ Shader "MineselfShader/Basic/1-BasicLightingModel/Phong"
             Tags{}
             //äÖÈ¾×´Ì¬
             
-            
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
